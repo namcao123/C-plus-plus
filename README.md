@@ -1,2 +1,1 @@
-# hellogit
-Start to learn programming
+Using C++ to learn data structure and algorithm.
