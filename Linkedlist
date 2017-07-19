@@ -1,0 +1,68 @@
+#include<iostream>
+#include <vector>
+#include <cstdlib>
+using namespace std;
+
+ struct node {
+        int data;
+        node* next;
+        node* prev;
+    };
+    
+    void PrintForward (node* head);
+    
+
+int main()
+{
+    
+    struct node {
+        int data;
+        node* next;
+        node* prev;
+    };
+    
+    node* head;
+    node* tail;
+    node* n;
+    //first node
+    n = new node;//creat brand new node , referecing 
+    n->data = 1;
+    n->prev = NULL;
+    head = n;
+    tail = n;
+    
+    //second node
+    n = new node;
+    n ->data = 2;
+    n-> prev = tail;//second node connect to first node
+    tail->next = n; // first node linked to second to next pointer
+    tail = n;
+    
+    n = new node;
+    n ->data = 3;
+    n-> prev = tail;
+    tail->next = n; 
+    tail = n;
+    
+    n = new node;
+    n ->data = 4;
+    n-> prev = tail;
+    tail->next = n; 
+    tail = n;
+    tail->next = NULL;
+    
+    PrintForward(head);
+    
+    return 0;
+}
+
+void PrintForward(node* head)
+{
+    node* temp = head;
+    while(temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
