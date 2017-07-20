@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+
+int findMaximum (int arr[], int low, int high)
+{
+    //*Array has one elment
+    if (low == high)
+    return arr[low];
+    
+    // Two element in array
+    if((high == low +1) && arr[low] >= arr[high])
+    return arr[low];
+    
+    if((high == low +1) && arr[low] <= arr[high])
+    return arr[high];
+    
+    int mid = (low + high)/2;
+    if ((arr[mid] > arr[mid + 1]) && (arr[mid] > arr[mid -1]))
+    return arr[mid];
+    
+    if (arr[mid] > arr[mid + 1] && arr[mid] < arr[mid -1])
+    return findMaximum(arr, low, mid-1);
+    
+    if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid -1])
+    return findMaximum(arr, mid+1,high);
+}
+
+int main()
+{
+    int n, m, i, j;
+    cin >> n >> m;
+    
+    //input the maxtrix and calculate the sum of column
+    //put the sum of column in array
+    
+    int sum[m] = {0};
+    //int sum2[n] = {0};
+    
+    // input the maxtrix n row and m column
+    int a[n][m];
+    for (i = 0; i < n; i ++)
+    {
+        for (j  = 0; j < m; j++)
+        {
+            cin >> a[i][j];
+            //sum of each column in nxm matrix
+            sum[j] += a[i][j];
+            
+        }
+    }
+    
+    //Print out the total column
+    for (int i = 0; i < m; i++)
+    cout << sum[i] << " ";
+    cout << endl;
+    
+    //Find maximum in array using binary search
+   cout <<  findMaximum (sum, 0,m+1);
+   
+}
