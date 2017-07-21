@@ -1,0 +1,27 @@
+#include <iostream>
+#include <set>
+#include <string>
+#include <map>
+
+using namespace std;
+
+
+// Create a function to find factorial
+
+int factorial(int n)
+{
+    if (n == 1) return 1;
+    else return n*factorial(n-1);
+
+}
+int main()
+{
+    
+    // choose r element from n element
+    int n, r, result;
+    cin >> n >> r;
+    
+    result = factorial(n)/(factorial(r)*factorial(n-r));
+    cout << result << endl;
+    return 0;
+}
