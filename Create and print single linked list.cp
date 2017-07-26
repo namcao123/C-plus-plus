@@ -22,9 +22,9 @@ void Insert(int x)
     temp -> data = x;
     temp -> next = head;
     head = temp;
-    
 }
 
+//Create print function to print element of linked list.
 void Print()
 {
     struct Node* temp = head;
@@ -33,15 +33,12 @@ void Print()
     {
         cout << temp -> data << " ";
         temp = temp -> next;
-    }
-        
+    }  
 }
-
-
 
 int main()
 {
-    head = NULL; //firs head node point to empty
+    head = NULL; //first head node point to empty
     cout << "How many number in the list: ";
     int n, i, x;
     cin >> n;
